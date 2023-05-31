@@ -1,3 +1,0 @@
-[[statics]]
-  directory = "dist"
-  routes = { path = "/", script = "vite/client" }
