@@ -1,5 +1,31 @@
 # railway.toml
 
+[build]
+command = "npm run build"
+# Zbuduj aplikację przed uruchomieniem serwera
+
+[[services]]
+internal_port = 3000
+# Wewnętrzny port, na którym działa serwer Express.js
+
+[deploy]
+public = "./dist"
+# Katalog publiczny, zawierający wygenerowane pliki aplikacji
+
+[[routes]]
+handle = "filesystem"
+base = "/"
+
+[[services.routes]]
+handle = "serve"
+src = "./dist"
+# Serwuj pliki z katalogu "./dist"
+
+[[services.routes]]
+handle = "static"
+root = "./dist"
+# Obsługuj żądania statyczne z katalogu "./dist"
+
 [[statics]]
 path = "/static"
 headers = { "Cache-Control" = "max-age=86400" }
