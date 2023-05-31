@@ -1,0 +1,70 @@
+# railway.toml
+
+[[statics]]
+path = "/static"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/favicon.ico"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/logo.svg"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/manifest.json"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/robots.txt"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/sitemaps/sitemap.xml"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/sw.js"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/workbox-*.js"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/precache-manifest-*.js"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/precache-manifest-*.css"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/static/js/*.chunk.js"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/static/css/*.chunk.css"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/static/media/*"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/assets/*"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/userMain/*"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/board/*"
+headers = { "Cache-Control" = "max-age=86400" }
+
+[[statics]]
+path = "/*"
+headers = { "Cache-Control" = "max-age=0" }
+destination = "/index.html"
