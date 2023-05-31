@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Box, Grid, IconButton, Tooltip, Typography, useTheme} from "@mui/material";
 import {ColorModeContext} from "@/App";
-import {Link} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import {BoardCardProps} from "@/components/board/interfaces/boardCard/boardCard";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ModalLeaveBoard from "@/components/board/modalLeaveBoard/modalLeaveBoard";
@@ -13,6 +13,7 @@ const BoardCard = (props:BoardCardProps) => {
     const [modalLeaveBoard, setModalLeaveBoard] = useState(false);
     const theme = useTheme()
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const colorMode = React.useContext(ColorModeContext);
     React.useEffect(() => {
         // Pobieranie elementu body i ustawienie stylu tła
@@ -36,15 +37,15 @@ const BoardCard = (props:BoardCardProps) => {
                     padding={1}
                     borderRadius={'10px 0 0 10px'}
                 >
-                    <Box height={'75%'}>
-                        <Link to={`#/board/${props.boardId}`} style={{textDecoration:'none'}}>
+                    <Box height={'75%'}
+                         onClick={() => navigate(`/board/${props.boardId}`)}
+                    >
                         <Typography variant={"h5"} color={theme.palette.text.primary}>
                             {props.title}
                         </Typography>
                         <Typography variant={"subtitle1"} color={theme.palette.text.primary}>
                             {t('creator')}: {props.creator}
                         </Typography>
-                        </Link>
                     </Box>
                     <Box
                         justifyContent={"end"}

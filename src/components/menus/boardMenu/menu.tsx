@@ -6,7 +6,7 @@ import {ColorModeContext} from "@/App";
 import LogoutIcon from '@mui/icons-material/Logout';
 import GroupIcon from '@mui/icons-material/Group';
 import {openModal} from "@/services/utils/modalUtils/modalUtils";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {BoardMenuProps} from "@/components/menus/interfaces/boardMenu";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import {logoutUser} from "@/services/utils/loginUtils/loginUtils";
@@ -18,6 +18,13 @@ const BoardMenu = (props:BoardMenuProps) => {
     const colorMode = React.useContext(ColorModeContext);
     const userId = sessionStorage.getItem('userId')
     const { t } = useTranslation();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logoutUser()
+        navigate('/')
+    }
+
     return(
         <Box
             minWidth={'64px'}
@@ -38,16 +45,15 @@ const BoardMenu = (props:BoardMenuProps) => {
                     minHeight={'80vh'}
                     spacing={2}
                 >
-                    <Link to={`#/userMain/${userId}`}>
                         <Tooltip title={t('yourBoards')} placement={'left'}>
-                    <IconButton
-                        sx={{color:theme.palette.text.theme}}
-                        size={"large"}
-                    >
-                        <DashboardIcon/>
-                    </IconButton>
+                        <IconButton
+                            sx={{color:theme.palette.text.theme}}
+                            size={"large"}
+                            onClick={() => navigate(`/userMain/${userId}`)}
+                        >
+                            <DashboardIcon/>
+                        </IconButton>
                     </Tooltip>
-                    </Link>
                     <Tooltip title={t('usersManagement')} placement={"left"}>
                     <IconButton
                         sx={{color:theme.palette.text.theme}}
@@ -74,14 +80,13 @@ const BoardMenu = (props:BoardMenuProps) => {
                     </IconButton>
                 </Tooltip>
                     <Tooltip title={t('logout')} placement={"left"}>
-                    <Link to={'/'}><IconButton
+                    <IconButton
                         sx={{color:theme.palette.text.theme}}
                         size={"large"}
-                        onClick={() => logoutUser()}
+                        onClick={() => handleLogout()}
                     >
                         <LogoutIcon/>
                     </IconButton>
-                    </Link>
                     </Tooltip>
                 </Stack>
             </Box>

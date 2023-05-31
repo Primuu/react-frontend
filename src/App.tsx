@@ -47,8 +47,8 @@ function KabanTable() {
                 <ThemeProvider theme={theme}>
                     <Routes>
                         <Route path="/" element={<SnackbarProvider maxSnack={1}><Home/></SnackbarProvider>}/>
-                        <Route path="/#/userMain/:userId" element={<SnackbarProvider maxSnack={3}><UserMain/> </SnackbarProvider>}/>
-                        <Route path="/#/board/:boardId" element={<SnackbarProvider maxSnack={3}> <Board/> </SnackbarProvider>}/>
+                        <Route path="/userMain/:userId" element={<SnackbarProvider maxSnack={3}><UserMain/> </SnackbarProvider>}/>
+                        <Route path="/board/:boardId" element={<SnackbarProvider maxSnack={3}> <Board/> </SnackbarProvider>}/>
                         <Route path={"*"} element={<Navigate to={"/"}/>}/>
                     </Routes>
                 </ThemeProvider>

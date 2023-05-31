@@ -53,7 +53,7 @@ const Home = () => {
                         (
                         <Button
                             variant={"outlined"}
-                            onClick={() => navigate(`#/userMain/${sessionStorage.getItem('userId')}`)}
+                            onClick={() => navigate(`/userMain/${sessionStorage.getItem('userId')}`)}
                         >
                             {t('myPanel')}
                         </Button>

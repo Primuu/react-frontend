@@ -18,7 +18,7 @@ export function loginUser(
                 sessionStorage.setItem('userEmail', res.email)
                 sessionStorage.setItem('userName', res.firstName)
                 sessionStorage.setItem('userLastName', res.lastName)
-                navigate(`#/userMain/${sessionStorage.getItem('userId')}`)
+                navigate(`/userMain/${sessionStorage.getItem('userId')}`)
             }
         })
 }
