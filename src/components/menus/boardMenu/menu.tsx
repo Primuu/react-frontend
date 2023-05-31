@@ -38,7 +38,7 @@ const BoardMenu = (props:BoardMenuProps) => {
                     minHeight={'80vh'}
                     spacing={2}
                 >
-                    <Link to={`/userMain/${userId}`}>
+                    <Link to={`#/userMain/${userId}`}>
                         <Tooltip title={t('yourBoards')} placement={'left'}>
                     <IconButton
                         sx={{color:theme.palette.text.theme}}

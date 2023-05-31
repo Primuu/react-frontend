@@ -37,7 +37,7 @@ const BoardCard = (props:BoardCardProps) => {
                     borderRadius={'10px 0 0 10px'}
                 >
                     <Box height={'75%'}>
-                        <Link to={`/board/${props.boardId}`} style={{textDecoration:'none'}}>
+                        <Link to={`#/board/${props.boardId}`} style={{textDecoration:'none'}}>
                         <Typography variant={"h5"} color={theme.palette.text.primary}>
                             {props.title}
                         </Typography>
